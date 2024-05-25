@@ -26,10 +26,10 @@
 --	odjel INT FOREIGN KEY REFERENCES odjel(sifra)
 --);
 
-
-
 --create table sudjeluje(
 --	zaposlenik INT NOT NULL FOREIGN KEY REFERENCES zaposlenik(sifra),
 --	projekt INT NOT NULL FOREIGN KEY REFERENCES projekt(sifra),
 --	datumpristupanja DATETIME
 --);
+
+--ALTER TABLE zaposlenik ADD FOREIGN KEY (nadredeni) REFERENCES zaposlenik(sifra);
