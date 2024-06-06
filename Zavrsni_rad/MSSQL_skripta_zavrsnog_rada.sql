@@ -1,6 +1,10 @@
---create database EdunovaWebProgramiranjeZavrsniRad;
-
---use EdunovaWebProgramiranjeZavrsniRad;
+use master;
+go
+drop database if exists EdunovaWebProgramiranjeZavrsniRad;
+go
+create database EdunovaWebProgramiranjeZavrsniRad;
+go
+use EdunovaWebProgramiranjeZavrsniRad;
 
 create table Player(
 	ID int not null primary key identity(1,1),
