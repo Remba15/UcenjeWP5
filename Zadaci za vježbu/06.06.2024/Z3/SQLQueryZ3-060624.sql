@@ -29,8 +29,8 @@ insert into Orders(OrderNumber, PersonID) values
 
 select * from Orders;
 
-update Persons LastName='Kunović' where LastName='Kuna';
+update Persons set LastName='Kunović' where LastName='Kuna';
 
-update Orders OrderNumber='56486552' where PersonID=1;
+update Orders set OrderNumber='56486552' where PersonID=1;
 
 delete from Orders where OrderNumber='549753164';
