@@ -4,8 +4,7 @@ drop database if exists Zupanija
 go
 create database Zupanija
 go
-
-use Zupanija
+use Zupanija;
 
 create table Zupan(
 	sifra int not null primary key identity(1,1),
