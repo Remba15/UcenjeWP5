@@ -1,10 +1,10 @@
 use master;
 go
-drop database if exists EdunovaWebProgramiranjeZavrsniRad;
+drop database if exists TrophyTracker;
 go
-create database EdunovaWebProgramiranjeZavrsniRad;
+create database TrophyTracker collate Croatian_CI_AS;
 go
-use EdunovaWebProgramiranjeZavrsniRad;
+use TrophyTracker;
 
 create table Player(
 	ID int not null primary key identity(1,1),
