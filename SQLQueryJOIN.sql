@@ -112,3 +112,12 @@ where naziv = 'Osijek';
 
 select * from Kupci
 where ime='Renato' AND prezime='Kuna';
+
+-- Ispišite nazive mjesta u RH koji imaju iste nazive s
+-- pripadajućim brojem ponavljanja
+
+select naziv, count(*)
+from Mjesta
+group by naziv
+having count(*)>1
+order by 2 desc;
