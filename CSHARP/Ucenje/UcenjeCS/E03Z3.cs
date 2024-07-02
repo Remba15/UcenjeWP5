@@ -19,7 +19,7 @@ namespace UcenjeCS
             Console.WriteLine("Unesite drugi broj: ");
             int y = int.Parse(Console.ReadLine());
 
-            if (x > y)
+            /*if (x > y)
             {
                 Console.WriteLine("Manji broj je {0}", y);
             }
@@ -30,9 +30,26 @@ namespace UcenjeCS
             else
             {
                 Console.WriteLine("Brojevi su jednaki.");
-            }
+            }*/
+
 
             // Isti zadatak ali za tri unesena broja ispisati najmanji.
+
+            Console.WriteLine("Unesite treći broj: ");
+            int z = int.Parse(Console.ReadLine());
+
+            if (x < y && x < z)
+            {
+                Console.WriteLine("Najmanji broj je {0}", x);
+            }
+            else if (y < z && y < x)
+            {
+                Console.WriteLine("Najmanji broj je {0}", y);
+            }
+            else
+            {
+                Console.WriteLine("Najmanji broj je {0}", z);
+            }
         }
     }
 }
