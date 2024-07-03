@@ -83,7 +83,7 @@ namespace UcenjeCS
             {
                 for (int j = 0; j < tablica.GetLength(1); j++)
                 {
-                    Console.Write(tablica[i, j] + " ");
+                    Console.Write(String.Format("{0, 10}", tablica[i, j] + " "));
                 }
                 Console.WriteLine();
 
@@ -95,7 +95,7 @@ namespace UcenjeCS
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    Console.Write((i + 1) * (j + 1) + " ");
+                    Console.Write(String.Format("{0,10}", (i + 1) * (j + 1) + " "));
                 }
                 Console.WriteLine();
             }
