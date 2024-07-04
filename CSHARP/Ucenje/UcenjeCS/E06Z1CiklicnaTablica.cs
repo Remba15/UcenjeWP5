@@ -30,13 +30,18 @@ namespace UcenjeCS
                 rastuciStupac = 0;
 
 
-            while(korak < umnozak)
+
+            while (korak <= umnozak)
             {
                 for (int i = padajuciRedak; ;)
                 {
                     for (int j = padajuciStupac; j >= rastuciStupac; j--)
                     {
-                        tablica[i, j] = korak++;
+                        if (korak <= umnozak)
+                        {
+                            tablica[i, j] = korak++;
+                        }
+
                     }
                     --padajuciRedak;
                     break;
@@ -46,7 +51,10 @@ namespace UcenjeCS
                 {
                     for (int i = padajuciRedak; i >= rastuciRedak; i--)
                     {
-                        tablica[i, j] = korak++;
+                        if (korak <= umnozak)
+                        {
+                            tablica[i, j] = korak++;
+                        }
                     }
                     ++rastuciStupac;
                     break;
@@ -56,7 +64,10 @@ namespace UcenjeCS
                 {
                     for (int j = rastuciStupac; j <= padajuciStupac; j++)
                     {
-                        tablica[i, j] = korak++;
+                        if (korak <= umnozak)
+                        {
+                            tablica[i, j] = korak++;
+                        }
                     }
                     ++rastuciRedak;
                     break;
@@ -64,9 +75,12 @@ namespace UcenjeCS
 
                 for (int j = padajuciStupac; ;)
                 {
-                    for (int i = padajuciRedak; i <= rastuciRedak; i++)
+                    for (int i = rastuciRedak; i <= padajuciRedak; i++)
                     {
-                        tablica[i, j] = korak++;
+                        if (korak <= umnozak)
+                        {
+                            tablica[i, j] = korak++;
+                        }
                     }
                     --padajuciStupac;
                     break;
@@ -74,7 +88,7 @@ namespace UcenjeCS
             }
 
 
-
+            //Ispis tablice
             for (int i = 0; i < tablica.GetLength(0); i++)
             {
                 for (int j = 0; j < tablica.GetLength(1); j++)
