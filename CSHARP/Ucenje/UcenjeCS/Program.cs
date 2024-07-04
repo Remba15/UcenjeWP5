@@ -21,13 +21,13 @@ using UcenjeCS;
 #endregion
 
 #region E07
-E07Z2.Izvedi();
+//E07Z2.Izvedi();
 //E07Z1.Izvedi();
 //E07WhilePetlja.Izvedi();
 #endregion
 
 #region E06
-//E06Z1CiklicnaTablica.Izvedi();
+E06Z1CiklicnaTablica.Izvedi();
 //E06ForPetlja.Izvedi();
 #endregion
 

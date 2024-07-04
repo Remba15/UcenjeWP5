@@ -33,58 +33,45 @@ namespace UcenjeCS
 
             while (korak <= umnozak)
             {
-                for (int i = padajuciRedak; ;)
+                for (int j = padajuciStupac; j >= rastuciStupac; j--)
                 {
-                    for (int j = padajuciStupac; j >= rastuciStupac; j--)
+                    if (korak <= umnozak)
                     {
-                        if (korak <= umnozak)
-                        {
-                            tablica[i, j] = korak++;
-                        }
-
+                        tablica[padajuciRedak, j] = korak++;
                     }
-                    --padajuciRedak;
-                    break;
-                }
 
-                for (int j = rastuciStupac; ;)
+                }
+                --padajuciRedak;
+
+
+                for (int i = padajuciRedak; i >= rastuciRedak; i--)
                 {
-                    for (int i = padajuciRedak; i >= rastuciRedak; i--)
+                    if (korak <= umnozak)
                     {
-                        if (korak <= umnozak)
-                        {
-                            tablica[i, j] = korak++;
-                        }
+                        tablica[i, rastuciStupac] = korak++;
                     }
-                    ++rastuciStupac;
-                    break;
                 }
+                ++rastuciStupac;
 
-                for (int i = rastuciRedak; ;)
-                {
-                    for (int j = rastuciStupac; j <= padajuciStupac; j++)
-                    {
-                        if (korak <= umnozak)
-                        {
-                            tablica[i, j] = korak++;
-                        }
-                    }
-                    ++rastuciRedak;
-                    break;
-                }
 
-                for (int j = padajuciStupac; ;)
+                for (int j = rastuciStupac; j <= padajuciStupac; j++)
                 {
-                    for (int i = rastuciRedak; i <= padajuciRedak; i++)
+                    if (korak <= umnozak)
                     {
-                        if (korak <= umnozak)
-                        {
-                            tablica[i, j] = korak++;
-                        }
+                        tablica[rastuciRedak, j] = korak++;
                     }
-                    --padajuciStupac;
-                    break;
                 }
+                ++rastuciRedak;
+
+
+                for (int i = rastuciRedak; i <= padajuciRedak; i++)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[i, padajuciStupac] = korak++;
+                    }
+                }
+                --padajuciStupac;
             }
 
 
