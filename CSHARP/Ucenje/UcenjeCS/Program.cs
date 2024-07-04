@@ -8,8 +8,26 @@ Console.WriteLine("zadnja linija čćčđščćč");
 
 using UcenjeCS;
 
+#region E10
+//E10TryCatch.Izvedi();
+#endregion
+
+#region E09
+//E09ForEachPetlja.Izvedi();
+#endregion
+
+#region E08
+//E08DoWhilePetlja.Izvedi();
+#endregion
+
+#region E07
+E07Z2.Izvedi();
+//E07Z1.Izvedi();
+//E07WhilePetlja.Izvedi();
+#endregion
+
 #region E06
-E06Z1CiklicnaTablica.Izvedi();
+//E06Z1CiklicnaTablica.Izvedi();
 //E06ForPetlja.Izvedi();
 #endregion
 
