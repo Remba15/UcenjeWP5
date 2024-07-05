@@ -32,7 +32,8 @@ namespace UcenjeCS
                 }
                 zbroj += nizBrojeva[i];
             }
-            Console.WriteLine(zbroj);
+            Console.WriteLine();
+            Console.WriteLine(zbroj + "\n");
             foreach (var b in nizBrojeva)
             {
                 Console.WriteLine(b);
