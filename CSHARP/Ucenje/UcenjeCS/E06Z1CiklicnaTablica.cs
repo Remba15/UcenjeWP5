@@ -11,94 +11,102 @@ namespace UcenjeCS
     {
         public static void Izvedi()
         {
-            Console.WriteLine("Unesite broj redaka tablice: ");
-            int brojRedaka = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Unesite broj stupaca tablice: ");
-            int brojStupaca = int.Parse(Console.ReadLine());
-
-            int[,] tablica = new int[brojRedaka, brojStupaca];
-
-            Console.WriteLine("Odaberite način obilaska petlje:\n\n" +
-                "\t*Upišite 1 za rastući redosljed brojeva.\n\n" +
-                "\t*Upišite 2 za padajući redosljed brojeva.");
-
-            int odabir = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-
-            if (odabir == 1)
+            try
             {
-                Console.WriteLine("Odaberite početnu poziciju:\n\n" +
-                    "\t1 - Donji desni kut.\n" +
-                    "\t2 - Donji lijevi kut\n" +
-                    "\t3 - Gornji lijevi kut\n" +
-                    "\t4 - Gornji desni kut");
+                Console.WriteLine("Unesite broj redaka tablice: ");
+                int brojRedaka = int.Parse(Console.ReadLine());
 
-                odabir = int.Parse(Console.ReadLine());
+                Console.WriteLine("Unesite broj stupaca tablice: ");
+                int brojStupaca = int.Parse(Console.ReadLine());
+
+                int[,] tablica = new int[brojRedaka, brojStupaca];
+
+                Console.WriteLine("Odaberite način obilaska petlje:\n\n" +
+                    "\t*Upišite 1 za rastući redosljed brojeva.\n\n" +
+                    "\t*Upišite 2 za padajući redosljed brojeva.");
+
+                int odabir = int.Parse(Console.ReadLine());
                 Console.WriteLine();
 
-                switch (odabir)
+                if (odabir == 1)
                 {
-                    case 1:
-                        tablica = CiklusDoljeDesno(brojRedaka, brojStupaca);
-                        IspisTablice(tablica);
-                        break;
-                    
-                    case 2:
-                        tablica = CiklusDoljeLijevo(brojRedaka, brojStupaca);
-                        IspisTablice(tablica);
-                        break;
+                    Console.WriteLine("Odaberite početnu poziciju:\n\n" +
+                        "\t1 - Donji desni kut.\n" +
+                        "\t2 - Donji lijevi kut\n" +
+                        "\t3 - Gornji lijevi kut\n" +
+                        "\t4 - Gornji desni kut");
 
-                    case 3:
-                        tablica = CiklusGoreLijevo(brojRedaka, brojStupaca);
-                        IspisTablice(tablica);
-                        break;
+                    odabir = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
 
-                    case 4:
-                        tablica = CiklusGoreDesno(brojRedaka, brojStupaca);
-                        IspisTablice(tablica);
-                        break;
+                    switch (odabir)
+                    {
+                        case 1:
+                            tablica = CiklusDoljeDesno(brojRedaka, brojStupaca);
+                            IspisTablice(tablica);
+                            break;
+
+                        case 2:
+                            tablica = CiklusDoljeLijevo(brojRedaka, brojStupaca);
+                            IspisTablice(tablica);
+                            break;
+
+                        case 3:
+                            tablica = CiklusGoreLijevo(brojRedaka, brojStupaca);
+                            IspisTablice(tablica);
+                            break;
+
+                        case 4:
+                            tablica = CiklusGoreDesno(brojRedaka, brojStupaca);
+                            IspisTablice(tablica);
+                            break;
+                    }
+
                 }
-
-            }
-            else if (odabir == 2)
-            {
-                Console.WriteLine("Odaberite početnu poziciju:\n\n" +
-                    "\t1 - Donji desni kut.\n" +
-                    "\t2 - Donji lijevi kut\n" +
-                    "\t3 - Gornji lijevi kut\n" +
-                    "\t4 - Gornji desni kut");
-
-                odabir = int.Parse(Console.ReadLine());
-                Console.WriteLine();
-
-                switch (odabir)
+                else if (odabir == 2)
                 {
-                    case 1:
-                        tablica = CiklusDoljeDesnoPadajuce(brojRedaka, brojStupaca);
-                        IspisTablice(tablica);
-                        break;
+                    Console.WriteLine("Odaberite početnu poziciju:\n\n" +
+                        "\t1 - Donji desni kut.\n" +
+                        "\t2 - Donji lijevi kut\n" +
+                        "\t3 - Gornji lijevi kut\n" +
+                        "\t4 - Gornji desni kut");
 
-                    case 2:
-                        tablica = CiklusDoljeLijevoPadajuce(brojRedaka, brojStupaca);
-                        IspisTablice(tablica);
-                        break;
+                    odabir = int.Parse(Console.ReadLine());
+                    Console.WriteLine();
 
-                    case 3:
-                        tablica = CiklusGoreLijevoPadajuce(brojRedaka, brojStupaca);
-                        IspisTablice(tablica);
-                        break;
+                    switch (odabir)
+                    {
+                        case 1:
+                            tablica = CiklusDoljeDesnoPadajuce(brojRedaka, brojStupaca);
+                            IspisTablice(tablica);
+                            break;
 
-                    case 4:
-                        tablica = CiklusGoreDesnoPadajuce(brojRedaka, brojStupaca);
-                        IspisTablice(tablica);
-                        break;
+                        case 2:
+                            tablica = CiklusDoljeLijevoPadajuce(brojRedaka, brojStupaca);
+                            IspisTablice(tablica);
+                            break;
+
+                        case 3:
+                            tablica = CiklusGoreLijevoPadajuce(brojRedaka, brojStupaca);
+                            IspisTablice(tablica);
+                            break;
+
+                        case 4:
+                            tablica = CiklusGoreDesnoPadajuce(brojRedaka, brojStupaca);
+                            IspisTablice(tablica);
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Pogrešan unos!");
                 }
             }
-            else
+            catch
             {
                 Console.WriteLine("Pogrešan unos!");
             }
+            
         }
 
 
