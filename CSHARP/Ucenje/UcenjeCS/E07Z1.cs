@@ -14,8 +14,9 @@ namespace UcenjeCS
             //Program od korisnika unosi cijeli broj (osigurava se unos)
             //Koristeći While petlju, program ispisuje
             //zbroj svih parnih brojeva od 1 do unesenog broja (skupa s njim)
-            //unos 10 ispis 30
-            //unos 12 ispis 42
+            //Primjer:
+            //  * unos 10 ispis 30
+            //  * unos 12 ispis 42
 
             int broj,
                 suma = 0;
@@ -34,12 +35,19 @@ namespace UcenjeCS
                 }
             }
             
-            int[] nizBrojeva = new int[broj];
-
-            while(true)
+            while(broj > 0)
             {
-                //nastavak za DZ
+                if(broj % 2 == 0)
+                {
+                    suma += broj;
+                    broj--;
+                }
+                else
+                {
+                    broj--;
+                }
             }
+            Console.WriteLine("Suma iznosi: {0}", suma);
 
         }
     }
