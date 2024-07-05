@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UcenjeCS
 {
-    internal class E06Z1CiklicnaTablica
+    public class E06Z1CiklicnaTablica
     {
         public static void Izvedi()
         {
@@ -17,16 +17,101 @@ namespace UcenjeCS
             Console.WriteLine("Unesite broj stupaca tablice: ");
             int brojStupaca = int.Parse(Console.ReadLine());
 
-
-
             int[,] tablica = new int[brojRedaka, brojStupaca];
 
-            int umnozak = brojRedaka * brojStupaca;
+            Console.WriteLine("Odaberite način obilaska petlje:\n\n" +
+                "\t*Upišite 1 za rastući redosljed brojeva.\n\n" +
+                "\t*Upišite 2 za padajući redosljed brojeva.");
+
+            int odabir = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            if (odabir == 1)
+            {
+                Console.WriteLine("Odaberite početnu poziciju:\n\n" +
+                    "\t1 - Donji desni kut.\n" +
+                    "\t2 - Donji lijevi kut\n" +
+                    "\t3 - Gornji lijevi kut\n" +
+                    "\t4 - Gornji desni kut");
+
+                odabir = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+
+                switch (odabir)
+                {
+                    case 1:
+                        tablica = CiklusDoljeDesno(brojRedaka, brojStupaca);
+                        IspisTablice(tablica);
+                        break;
+                    
+                    case 2:
+                        tablica = CiklusDoljeLijevo(brojRedaka, brojStupaca);
+                        IspisTablice(tablica);
+                        break;
+
+                    case 3:
+                        tablica = CiklusGoreLijevo(brojRedaka, brojStupaca);
+                        IspisTablice(tablica);
+                        break;
+
+                    case 4:
+                        tablica = CiklusGoreDesno(brojRedaka, brojStupaca);
+                        IspisTablice(tablica);
+                        break;
+                }
+
+            }
+            else if (odabir == 2)
+            {
+                Console.WriteLine("Odaberite početnu poziciju:\n\n" +
+                    "\t1 - Donji desni kut.\n" +
+                    "\t2 - Donji lijevi kut\n" +
+                    "\t3 - Gornji lijevi kut\n" +
+                    "\t4 - Gornji desni kut");
+
+                odabir = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+
+                switch (odabir)
+                {
+                    case 1:
+                        tablica = CiklusDoljeDesnoPadajuce(brojRedaka, brojStupaca);
+                        IspisTablice(tablica);
+                        break;
+
+                    case 2:
+                        tablica = CiklusDoljeLijevoPadajuce(brojRedaka, brojStupaca);
+                        IspisTablice(tablica);
+                        break;
+
+                    case 3:
+                        tablica = CiklusGoreLijevoPadajuce(brojRedaka, brojStupaca);
+                        IspisTablice(tablica);
+                        break;
+
+                    case 4:
+                        tablica = CiklusGoreDesnoPadajuce(brojRedaka, brojStupaca);
+                        IspisTablice(tablica);
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Pogrešan unos!");
+            }
+        }
+
+
+        public static int[,] CiklusDoljeDesno(int redak, int stupac)
+        {
+            int[,] tablica = new int[redak, stupac];
+
+            int umnozak = redak * stupac;
 
             int korak = 1;
-            int padajuciRedak = brojRedaka - 1,
+            int padajuciRedak = redak - 1,
                 rastuciRedak = 0,
-                padajuciStupac = brojStupaca - 1,
+                padajuciStupac = stupac - 1,
                 rastuciStupac = 0;
 
 
@@ -73,9 +158,400 @@ namespace UcenjeCS
                 }
                 --padajuciStupac;
             }
+            return tablica;
+        }
+
+        public static int[,] CiklusDoljeLijevo(int redak, int stupac)
+        {
+            int[,] tablica = new int[redak, stupac];
+
+            int umnozak = redak * stupac;
+
+            int korak = 1;
+            int padajuciRedak = redak - 1,
+                rastuciRedak = 0,
+                padajuciStupac = stupac - 1,
+                rastuciStupac = 0;
+
+            while (korak <= umnozak)
+            {
+                for (int i = padajuciRedak; i >= rastuciRedak; i--)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[i, rastuciStupac] = korak++;
+                    }
+                }
+                ++rastuciStupac;
 
 
-            //Ispis tablice
+                for (int j = rastuciStupac; j <= padajuciStupac; j++)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[rastuciRedak, j] = korak++;
+                    }
+                }
+                ++rastuciRedak;
+
+
+                for (int i = rastuciRedak; i <= padajuciRedak; i++)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[i, padajuciStupac] = korak++;
+                    }
+                }
+                --padajuciStupac;
+
+                for (int j = padajuciStupac; j >= rastuciStupac; j--)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[padajuciRedak, j] = korak++;
+                    }
+
+                }
+                --padajuciRedak;
+            }
+            return tablica;
+        }
+
+        public static int[,] CiklusGoreLijevo(int redak, int stupac)
+        {
+            int[,] tablica = new int[redak, stupac];
+
+            int umnozak = redak * stupac;
+
+            int korak = 1;
+            int padajuciRedak = redak - 1,
+                rastuciRedak = 0,
+                padajuciStupac = stupac - 1,
+                rastuciStupac = 0;
+
+            while (korak <= umnozak)
+            {
+                for (int j = rastuciStupac; j <= padajuciStupac; j++)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[rastuciRedak, j] = korak++;
+                    }
+                }
+                ++rastuciRedak;
+
+
+                for (int i = rastuciRedak; i <= padajuciRedak; i++)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[i, padajuciStupac] = korak++;
+                    }
+                }
+                --padajuciStupac;
+
+                for (int j = padajuciStupac; j >= rastuciStupac; j--)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[padajuciRedak, j] = korak++;
+                    }
+
+                }
+                --padajuciRedak;
+
+
+                for (int i = padajuciRedak; i >= rastuciRedak; i--)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[i, rastuciStupac] = korak++;
+                    }
+                }
+                ++rastuciStupac;
+            }
+            return tablica;
+        }
+
+        public static int[,] CiklusGoreDesno(int redak, int stupac)
+        {
+            int[,] tablica = new int[redak, stupac];
+
+            int umnozak = redak * stupac;
+
+            int korak = 1;
+            int padajuciRedak = redak - 1,
+                rastuciRedak = 0,
+                padajuciStupac = stupac - 1,
+                rastuciStupac = 0;
+
+
+            while (korak <= umnozak)
+            {
+                for (int i = rastuciRedak; i <= padajuciRedak; i++)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[i, padajuciStupac] = korak++;
+                    }
+                }
+                --padajuciStupac;
+
+                for (int j = padajuciStupac; j >= rastuciStupac; j--)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[padajuciRedak, j] = korak++;
+                    }
+
+                }
+                --padajuciRedak;
+
+
+                for (int i = padajuciRedak; i >= rastuciRedak; i--)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[i, rastuciStupac] = korak++;
+                    }
+                }
+                ++rastuciStupac;
+
+
+                for (int j = rastuciStupac; j <= padajuciStupac; j++)
+                {
+                    if (korak <= umnozak)
+                    {
+                        tablica[rastuciRedak, j] = korak++;
+                    }
+                }
+                ++rastuciRedak;
+            }
+            return tablica;
+        }
+
+        public static int[,] CiklusDoljeDesnoPadajuce(int redak, int stupac)
+        {
+            int[,] tablica = new int[redak, stupac];
+
+            int umnozak = redak * stupac;
+
+            int padajuciRedak = redak - 1,
+                rastuciRedak = 0,
+                padajuciStupac = stupac - 1,
+                rastuciStupac = 0;
+
+            while (umnozak > 0)
+            {
+                for (int j = padajuciStupac; j >= rastuciStupac; j--)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[padajuciRedak, j] = umnozak--;
+                    }
+
+                }
+                --padajuciRedak;
+
+
+                for (int i = padajuciRedak; i >= rastuciRedak; i--)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[i, rastuciStupac] = umnozak--;
+                    }
+                }
+                ++rastuciStupac;
+
+
+                for (int j = rastuciStupac; j <= padajuciStupac; j++)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[rastuciRedak, j] = umnozak--;
+                    }
+                }
+                ++rastuciRedak;
+
+
+                for (int i = rastuciRedak; i <= padajuciRedak; i++)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[i, padajuciStupac] = umnozak--;
+                    }
+                }
+                --padajuciStupac;
+            }
+            return tablica;
+        }
+
+        public static int[,] CiklusDoljeLijevoPadajuce(int redak, int stupac)
+        {
+            int[,] tablica = new int[redak, stupac];
+
+            int umnozak = redak * stupac;
+
+            int padajuciRedak = redak - 1,
+                rastuciRedak = 0,
+                padajuciStupac = stupac - 1,
+                rastuciStupac = 0;
+
+            while (umnozak > 0)
+            {
+                for (int i = padajuciRedak; i >= rastuciRedak; i--)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[i, rastuciStupac] = umnozak--;
+                    }
+                }
+                ++rastuciStupac;
+
+
+                for (int j = rastuciStupac; j <= padajuciStupac; j++)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[rastuciRedak, j] = umnozak--;
+                    }
+                }
+                ++rastuciRedak;
+
+
+                for (int i = rastuciRedak; i <= padajuciRedak; i++)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[i, padajuciStupac] = umnozak--;
+                    }
+                }
+                --padajuciStupac;
+
+                for (int j = padajuciStupac; j >= rastuciStupac; j--)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[padajuciRedak, j] = umnozak--;
+                    }
+
+                }
+                --padajuciRedak;
+            }
+            return tablica;
+        }
+
+        public static int[,] CiklusGoreLijevoPadajuce(int redak, int stupac)
+        {
+            int[,] tablica = new int[redak, stupac];
+
+            int umnozak = redak * stupac;
+
+            int padajuciRedak = redak - 1,
+                rastuciRedak = 0,
+                padajuciStupac = stupac - 1,
+                rastuciStupac = 0;
+
+            while (umnozak > 0)
+            {
+                for (int j = rastuciStupac; j <= padajuciStupac; j++)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[rastuciRedak, j] = umnozak--;
+                    }
+                }
+                ++rastuciRedak;
+
+
+                for (int i = rastuciRedak; i <= padajuciRedak; i++)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[i, padajuciStupac] = umnozak--;
+                    }
+                }
+                --padajuciStupac;
+
+                for (int j = padajuciStupac; j >= rastuciStupac; j--)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[padajuciRedak, j] = umnozak--;
+                    }
+
+                }
+                --padajuciRedak;
+
+                for (int i = padajuciRedak; i >= rastuciRedak; i--)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[i, rastuciStupac] = umnozak--;
+                    }
+                }
+                ++rastuciStupac;
+            }
+            return tablica;
+        }
+
+        public static int[,] CiklusGoreDesnoPadajuce(int redak, int stupac)
+        {
+            int[,] tablica = new int[redak, stupac];
+
+            int umnozak = redak * stupac;
+
+            int padajuciRedak = redak - 1,
+                rastuciRedak = 0,
+                padajuciStupac = stupac - 1,
+                rastuciStupac = 0;
+
+            while (umnozak > 0)
+            {
+
+                for (int i = rastuciRedak; i <= padajuciRedak; i++)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[i, padajuciStupac] = umnozak--;
+                    }
+                }
+                --padajuciStupac;
+
+                for (int j = padajuciStupac; j >= rastuciStupac; j--)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[padajuciRedak, j] = umnozak--;
+                    }
+
+                }
+                --padajuciRedak;
+
+                for (int i = padajuciRedak; i >= rastuciRedak; i--)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[i, rastuciStupac] = umnozak--;
+                    }
+                }
+                ++rastuciStupac;
+
+                for (int j = rastuciStupac; j <= padajuciStupac; j++)
+                {
+                    if (umnozak > 0)
+                    {
+                        tablica[rastuciRedak, j] = umnozak--;
+                    }
+                }
+                ++rastuciRedak;
+            }
+            return tablica;
+        }
+
+
+        public static void IspisTablice(int[,] tablica)
+        {
             for (int i = 0; i < tablica.GetLength(0); i++)
             {
                 for (int j = 0; j < tablica.GetLength(1); j++)
@@ -85,5 +561,6 @@ namespace UcenjeCS
                 Console.WriteLine();
             }
         }
+
     }
 }
