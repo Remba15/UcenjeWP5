@@ -39,29 +39,35 @@ namespace UcenjeCS
                     odabir = int.Parse(Console.ReadLine());
                     Console.WriteLine();
 
-                    switch (odabir)
+                    if(odabir < 1 && odabir > 4)
                     {
-                        case 1:
-                            tablica = CiklusDoljeDesno(brojRedaka, brojStupaca);
-                            IspisTablice(tablica);
-                            break;
-
-                        case 2:
-                            tablica = CiklusDoljeLijevo(brojRedaka, brojStupaca);
-                            IspisTablice(tablica);
-                            break;
-
-                        case 3:
-                            tablica = CiklusGoreLijevo(brojRedaka, brojStupaca);
-                            IspisTablice(tablica);
-                            break;
-
-                        case 4:
-                            tablica = CiklusGoreDesno(brojRedaka, brojStupaca);
-                            IspisTablice(tablica);
-                            break;
+                        Console.WriteLine("Pogrešan unos!");
                     }
+                    else
+                    {
+                        switch (odabir)
+                        {
+                            case 1:
+                                tablica = CiklusDoljeDesno(brojRedaka, brojStupaca);
+                                IspisTablice(tablica);
+                                break;
 
+                            case 2:
+                                tablica = CiklusDoljeLijevo(brojRedaka, brojStupaca);
+                                IspisTablice(tablica);
+                                break;
+
+                            case 3:
+                                tablica = CiklusGoreLijevo(brojRedaka, brojStupaca);
+                                IspisTablice(tablica);
+                                break;
+
+                            case 4:
+                                tablica = CiklusGoreDesno(brojRedaka, brojStupaca);
+                                IspisTablice(tablica);
+                                break;
+                        }
+                    }
                 }
                 else if (odabir == 2)
                 {
@@ -74,27 +80,35 @@ namespace UcenjeCS
                     odabir = int.Parse(Console.ReadLine());
                     Console.WriteLine();
 
-                    switch (odabir)
+
+                    if (odabir < 1 && odabir > 4)
                     {
-                        case 1:
-                            tablica = CiklusDoljeDesnoPadajuce(brojRedaka, brojStupaca);
-                            IspisTablice(tablica);
-                            break;
+                        Console.WriteLine("Pogrešan unos!");
+                    }
+                    else
+                    {
+                        switch (odabir)
+                        {
+                            case 1:
+                                tablica = CiklusDoljeDesnoPadajuce(brojRedaka, brojStupaca);
+                                IspisTablice(tablica);
+                                break;
 
-                        case 2:
-                            tablica = CiklusDoljeLijevoPadajuce(brojRedaka, brojStupaca);
-                            IspisTablice(tablica);
-                            break;
+                            case 2:
+                                tablica = CiklusDoljeLijevoPadajuce(brojRedaka, brojStupaca);
+                                IspisTablice(tablica);
+                                break;
 
-                        case 3:
-                            tablica = CiklusGoreLijevoPadajuce(brojRedaka, brojStupaca);
-                            IspisTablice(tablica);
-                            break;
+                            case 3:
+                                tablica = CiklusGoreLijevoPadajuce(brojRedaka, brojStupaca);
+                                IspisTablice(tablica);
+                                break;
 
-                        case 4:
-                            tablica = CiklusGoreDesnoPadajuce(brojRedaka, brojStupaca);
-                            IspisTablice(tablica);
-                            break;
+                            case 4:
+                                tablica = CiklusGoreDesnoPadajuce(brojRedaka, brojStupaca);
+                                IspisTablice(tablica);
+                                break;
+                        }
                     }
                 }
                 else
