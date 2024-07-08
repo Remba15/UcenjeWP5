@@ -27,7 +27,7 @@ using UcenjeCS;
 #endregion
 
 #region E06
-E06Z1CiklicnaTablica.Izvedi();
+//E06Z1CiklicnaTablica.Izvedi();
 //E06ForPetlja.Izvedi();
 #endregion
 
@@ -41,6 +41,7 @@ E06Z1CiklicnaTablica.Izvedi();
 #endregion
 
 #region E03
+E03Z4.Izvedi();
 //E03Z3.Izvedi();
 //E03Z2.Izvedi();
 //E03Z1.Izvedi();
