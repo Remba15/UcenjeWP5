@@ -44,7 +44,7 @@ using UcenjeCS;
 #endregion
 
 #region E03
-//E03Z4.Izvedi();
+E03Z4.Izvedi();
 //E03Z3.Izvedi();
 //E03Z2.Izvedi();
 //E03Z1.Izvedi();
