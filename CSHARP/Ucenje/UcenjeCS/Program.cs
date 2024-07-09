@@ -8,6 +8,16 @@ Console.WriteLine("zadnja linija čćčđščćč");
 
 using UcenjeCS;
 
+#region E12
+E12Rekurzija.Izvedi();
+#endregion
+
+#region E11
+//E11Z1.Izvedi();
+//E11Metode.Izvedi();
+#endregion
+
+
 #region E10
 //E10TryCatch.Izvedi();
 #endregion
@@ -44,7 +54,7 @@ using UcenjeCS;
 #endregion
 
 #region E03
-E03Z4.Izvedi();
+//E03Z4.Izvedi();
 //E03Z3.Izvedi();
 //E03Z2.Izvedi();
 //E03Z1.Izvedi();
@@ -56,7 +66,7 @@ E03Z4.Izvedi();
 #endregion
 
 #region E01
-E01Z4.Izvedi();
+//E01Z4.Izvedi();
 //E01Z3.Izvedi();
 //E01Z2.Izvedi();
 //E01Z1.Izvedi();
