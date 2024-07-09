@@ -21,17 +21,20 @@ using UcenjeCS;
 #endregion
 
 #region E07
+//E07Z3.Izvedi();     //U nastavi je to E07Z2
 //E07Z2.Izvedi();
 //E07Z1.Izvedi();
 //E07WhilePetlja.Izvedi();
 #endregion
 
 #region E06
-E06Z1CiklicnaTablica.Izvedi();
+//E06Z1.Izvedi();
+//E06Z1CiklicnaTablica.Izvedi();
 //E06ForPetlja.Izvedi();
 #endregion
 
 #region E05
+//E05Z1.Izvedi();
 //E05Nizovi.Izvedi();
 #endregion
 
@@ -41,6 +44,7 @@ E06Z1CiklicnaTablica.Izvedi();
 #endregion
 
 #region E03
+//E03Z4.Izvedi();
 //E03Z3.Izvedi();
 //E03Z2.Izvedi();
 //E03Z1.Izvedi();
@@ -52,5 +56,9 @@ E06Z1CiklicnaTablica.Izvedi();
 #endregion
 
 #region E01
+E01Z4.Izvedi();
+//E01Z3.Izvedi();
+//E01Z2.Izvedi();
+//E01Z1.Izvedi();
 //E01UlazIzlaz.Izvedi();
 #endregion
