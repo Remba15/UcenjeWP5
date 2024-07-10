@@ -9,14 +9,13 @@ Console.WriteLine("zadnja linija čćčđščćč");
 using UcenjeCS;
 
 #region E12
-E12Rekurzija.Izvedi();
+//E12Rekurzija.Izvedi();
 #endregion
 
 #region E11
 //E11Z1.Izvedi();
 //E11Metode.Izvedi();
 #endregion
-
 
 #region E10
 //E10TryCatch.Izvedi();
