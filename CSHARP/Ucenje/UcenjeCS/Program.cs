@@ -10,6 +10,7 @@ using UcenjeCS;
 
 #region E12
 //E12Rekurzija.Izvedi();
+E12Z1LjubavniKalkulator.Izvedi();
 #endregion
 
 #region E11
