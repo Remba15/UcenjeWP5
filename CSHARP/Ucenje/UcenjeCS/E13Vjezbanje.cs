@@ -22,6 +22,92 @@ namespace UcenjeCS
             //zadatak9();
             #endregion
 
+            #region Zadaci za PodaciFloat
+            //Zadatak10();
+            //Zadatak11();
+            //Zadatak12();
+            //Zadatak13();
+            Zadatak14();
+            //Zadatak15();
+            //Zadatak16();
+            //Zadatak17();
+            #endregion
+
+        }
+
+        private static void Zadatak10()
+        {
+            // Koliko ima brojeva u nizu?
+
+            Console.WriteLine("U nizu ima {0} elemenata.", PodaciFloat.Niz.Length);
+        }
+
+        private static void Zadatak11()
+        {
+            // Koliko je brojeva manje od 10
+            var niz = PodaciFloat.Niz;
+            int count = 0;
+
+            foreach (var n in niz)
+            {
+                if(n < 10)
+                {
+                    count++;
+                }
+            }
+
+            Console.WriteLine("U nizu se nalazi {0} brojeva koji su manji od 10.", count);
+
+        }
+
+        private static void Zadatak12()
+        {
+            // Ispišite najveći broj
+            var niz = PodaciFloat.Niz;
+
+            Array.Sort(niz);
+
+            Console.WriteLine("Najveći broj u nizu je {0}", niz[niz.Length-1]);
+        }
+
+        private static void Zadatak13()
+        {
+            // Ispišite najmanji broj
+            var niz = PodaciFloat.Niz;
+
+            Array.Sort(niz);
+
+            Console.WriteLine("Najmanji broj u nizu je {0}", niz[0]);
+        }
+
+        private static void Zadatak14()
+        {
+            // Ispišite prosjek svih brojeva
+            var niz = PodaciFloat.Niz;
+            float suma = 0;
+
+            foreach (var n in niz)
+            {
+                suma += n;
+            }
+
+            Console.WriteLine("Prosjek svih brojeva iznosi {0}", suma / niz.Length);
+        }
+
+        private static void Zadatak15()
+        {
+            // Ispišite sve brojeve koji nemaju decimalni dio.
+
+        }
+
+        private static void Zadatak16()
+        {
+            // Ispišite sve brojeve koji počinju s znamenkom 7
+        }
+
+        private static void Zadatak17()
+        {
+            // Ispišite sve brojeve koji se ponavljaju više od 10 puta
         }
 
 
