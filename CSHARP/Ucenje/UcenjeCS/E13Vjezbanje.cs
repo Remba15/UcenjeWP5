@@ -27,10 +27,10 @@ namespace UcenjeCS
             //Zadatak11();
             //Zadatak12();
             //Zadatak13();
-            Zadatak14();
+            //Zadatak14();
             //Zadatak15();
             //Zadatak16();
-            //Zadatak17();
+            Zadatak17();
             #endregion
 
         }
@@ -50,7 +50,7 @@ namespace UcenjeCS
 
             foreach (var n in niz)
             {
-                if(n < 10)
+                if (n < 10)
                 {
                     count++;
                 }
@@ -67,7 +67,7 @@ namespace UcenjeCS
 
             Array.Sort(niz);
 
-            Console.WriteLine("Najveći broj u nizu je {0}", niz[niz.Length-1]);
+            Console.WriteLine("Najveći broj u nizu je {0}", niz[niz.Length - 1]);
         }
 
         private static void Zadatak13()
@@ -97,17 +97,67 @@ namespace UcenjeCS
         private static void Zadatak15()
         {
             // Ispišite sve brojeve koji nemaju decimalni dio.
+            var niz = PodaciFloat.Niz;
 
+            for (int i = 0; i < niz.Length; i++)
+            {
+                if (niz[i] % 1 > 0 && niz[i] % 1 < 1)
+                {
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine(niz[i]);
+                }
+            }
         }
 
         private static void Zadatak16()
         {
             // Ispišite sve brojeve koji počinju s znamenkom 7
+            var niz = PodaciFloat.Niz;
+            string broj;
+
+            for (int i = 0; i < niz.Length; i++)
+            {
+                broj = niz[i].ToString();
+                if (broj[0] == '7')
+                {
+                    Console.WriteLine(niz[i]);
+                }
+            }
         }
 
         private static void Zadatak17()
         {
             // Ispišite sve brojeve koji se ponavljaju više od 10 puta
+            var niz = PodaciFloat.Niz;
+            int count = 0, count2 = 0;
+
+            Array.Sort(niz);
+
+            for (int i = 0; i < niz.Length - 1; i++)
+            {
+                if (niz[i] == niz[i + 1])
+                {
+                    count++;
+                }
+                else
+                {
+                    if(count > 10)
+                    {
+                        Console.WriteLine(niz[i]);
+                        count2++;
+                        count = 0;
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
+                }
+            }
+            Console.WriteLine("Ukupno ima {0} elemenata", niz.Length);
+            Console.WriteLine("Od toliko {0} se ponavlja više od 10 puta.", count2);
         }
 
 
@@ -265,15 +315,15 @@ namespace UcenjeCS
             for (int i = 0; i < niz.Length; i++)
             {
                 broj = niz[i].ToString();
-                foreach(char b in broj)
+                foreach (char b in broj)
                 {
-                    if(b == '7')
+                    if (b == '7')
                     {
                         sedmice++;
                         break;
                     }
                 }
-                if(sedmice == 0)
+                if (sedmice == 0)
                 {
                     count++;
                 }
