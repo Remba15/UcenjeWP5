@@ -30,11 +30,101 @@ namespace UcenjeCS
             //Zadatak14();
             //Zadatak15();
             //Zadatak16();
-            Zadatak17();
+            //Zadatak17();
+            #endregion
+
+            #region Zadaci za PodaciString
+            //Zadatak18();
+            Zadatak19();
+            //Zadatak20();
+            //Zadatak21();
+            //Zadatak22();
+            //Zadatak23();
             #endregion
 
         }
 
+        private static void Zadatak18()
+        {
+            // koliko je imena u nizu?
+            var niz = PodaciString.Niz;
+
+            Console.WriteLine("U nizu se nalazi {0} imena.", niz.Length);
+        }
+
+        private static void Zadatak19()
+        {
+            // Kojeg imena ima najviše?
+            var niz = PodaciString.Niz;
+            Array.Sort(niz);
+
+            int count = 0, countIme = 1;
+            string ime = niz[0];
+
+            for (int i = 0; i < niz.Length - 1; i++)
+            {
+                if (niz[i] == niz[i + 1])
+                {
+                    count++;
+                }
+                else
+                {
+                    if (count > countIme)
+                    {
+                        ime = niz[i];
+                        countIme = count;
+                        count = 0;
+                    }
+                    else
+                    {
+                        count = 0;
+                    }
+                }
+            }
+
+            Console.WriteLine("Najviše se ponavlja ime {0} sa {1} ponavljanja.", ime, countIme);
+
+        }
+
+        private static void Zadatak20()
+        {
+            // Koliko se imena pojavljuje samo jednom?
+            var niz = PodaciString.Niz;
+            Array.Sort(niz);
+            int count = 1, countIme = 0;
+            string ime = niz[0];
+
+            for(int i = 1; i < niz.Length; i++)
+            {
+                if (ime == niz[i])
+                {
+                    count++;
+                }
+                else
+                {
+                    ime = niz[i];
+                    //TODO: Nastaviti
+                }
+            }
+
+        }
+
+        private static void Zadatak21()
+        {
+            // Koliko ima imena koji imaju 7 znakova?
+        }
+
+        private static void Zadatak22()
+        {
+            // Ako uzmemo pravilo da sva ženska imena završavaju s slovom a, koliko ima muškaraca?
+        }
+
+        private static void Zadatak23()
+        {
+            // Koliko imena se sastoje od dva imena (npr. MARIJAN-ZLATKO, LUCIJA-ALBINA, itd.)
+        }
+
+        #region PodaciFloat Metode
         private static void Zadatak10()
         {
             // Koliko ima brojeva u nizu?
@@ -144,7 +234,7 @@ namespace UcenjeCS
                 }
                 else
                 {
-                    if(count > 10)
+                    if (count > 10)
                     {
                         Console.WriteLine(niz[i]);
                         count2++;
@@ -159,8 +249,7 @@ namespace UcenjeCS
             Console.WriteLine("Ukupno ima {0} elemenata", niz.Length);
             Console.WriteLine("Od toliko {0} se ponavlja više od 10 puta.", count2);
         }
-
-
+        #endregion
 
         #region PodaciInt metode
         private static void Zadatak1()
