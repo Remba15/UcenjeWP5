@@ -10,7 +10,7 @@ namespace UcenjeCS
     {
         public static void Izvedi()
         {
-            #region zadaci za PodaciInt
+            #region Zadaci za PodaciInt
             //Zadatak1();
             //Zadatak2();
             //Zadatak3();
@@ -57,7 +57,9 @@ namespace UcenjeCS
 
         #region Metode za PodaciInt
 
-
+        /// <summary>
+        /// Metoda provjerava da li postoje dva ista broja u nizu PodaciInt. Ukoliko postoje isti brojevi, oni se ispisuju.
+        /// </summary>
         private static void Zadatak1()
         {
             // Postoji li dva ista broja? Ako postoji koji je to broj?
@@ -76,6 +78,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje najveći broj u nizu PodaciInt.
+        /// </summary>
         private static void Zadatak2()
         {
             // Koji je najveći broj?
@@ -86,6 +91,9 @@ namespace UcenjeCS
             Console.WriteLine("Najveći broj je {0}", niz[niz.Length - 1]);
         }
 
+        /// <summary>
+        /// Metoda ispisuje najmanji broj u nizu PodaciInt.
+        /// </summary>
         private static void Zadatak3()
         {
             // Koji je najmanji broj?
@@ -96,6 +104,9 @@ namespace UcenjeCS
             Console.WriteLine("Najmanji broj je {0}", niz[0]);
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko se parnih brojeva nalazi u nizu PodaciInt
+        /// </summary>
         private static void Zadatak4()
         {
             // Koliko je parnih brojeva?
@@ -114,6 +125,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko se neparnih brojeva nalazi u nizu PodaciInt.
+        /// </summary>
         private static void Zadatak5()
         {
             // Koliko je neparnih brojeva?
@@ -130,6 +144,9 @@ namespace UcenjeCS
             Console.WriteLine("U nizu se nalazi {0} neparnih brojeva.", count);
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko se prostih brojeva nalazi u nizu PodaciInt.
+        /// </summary>
         private static void Zadatak6()
         {
             // Koliko je prim brojeva?
@@ -138,7 +155,7 @@ namespace UcenjeCS
 
             for (int i = 0; i < niz.Length; i++)
             {
-                if (prim(niz[i]))
+                if (Prim(niz[i]))
                 {
                     count++;
                 }
@@ -146,7 +163,14 @@ namespace UcenjeCS
             Console.WriteLine("U nizu se nalazi {0} prim brojeva.", count);
         }
 
-        private static bool prim(int broj)
+        /// <summary>
+        /// Metoda provjerava da li je uneseni broj prosti broj.
+        /// </summary>
+        /// <param name="broj"></param>
+        /// <returns>
+        /// Bool vrijednost koja označava da li je primljeni broj prosti ili nije.
+        /// </returns>
+        private static bool Prim(int broj)
         {
             for (int i = 2; i < broj; i++)
             {
@@ -166,7 +190,7 @@ namespace UcenjeCS
 
             for (int i = 0; i < niz.Length; i++)
             {
-                if (prim(niz[i]))
+                if (Prim(niz[i]))
                 {
                     if (niz[i] > maxPrime)
                     {
