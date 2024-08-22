@@ -11,15 +11,15 @@ namespace UcenjeCS
         public static void Izvedi()
         {
             #region Zadaci za PodaciInt
-            //Zadatak1();
-            //Zadatak2();
-            //Zadatak3();
-            //Zadatak4();
-            //Zadatak5();
-            //Zadatak6();
-            //Zadatak7();
-            //zadatak8();
-            //zadatak9();
+            Zadatak1();
+            Zadatak2();
+            Zadatak3();
+            Zadatak4();
+            Zadatak5();
+            Zadatak6();
+            Zadatak7();
+            zadatak8();
+            zadatak9();
             #endregion
 
             #region Zadaci za PodaciFloat
@@ -182,6 +182,9 @@ namespace UcenjeCS
             return true;
         }
 
+        /// <summary>
+        /// Metoda ispisuje najveći prosti broj u nizu PodaciInt.
+        /// </summary>
         private static void Zadatak7()
         {
             // Koji je najveći prim broj?
@@ -201,6 +204,9 @@ namespace UcenjeCS
             Console.WriteLine("Najveći prim broj je: {0}", maxPrime);
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko brojeva u nizu PodaciInt u sebi sadrže znamenku 7.
+        /// </summary>
         private static void zadatak8()
         {
             // Koliko je brojeva koji u sebi imaju znamenku 7?
@@ -224,6 +230,9 @@ namespace UcenjeCS
             Console.WriteLine("Od ukupno {0} brojeva", niz.Length);
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko brojeva u nizu PodaciInt u sebi ne sadrže znamenku 7.
+        /// </summary>
         private static void zadatak9()
         {
             // Koliko je brojeva koji u sebi nemaju znamenku 7?
@@ -261,6 +270,9 @@ namespace UcenjeCS
         #region Metode za PodaciFloat
 
 
+        /// <summary>
+        /// Metoda ispisuje koliko ukupno elemenata ima niz PodaciFloat.
+        /// </summary>
         private static void Zadatak10()
         {
             // Koliko ima brojeva u nizu?
@@ -268,6 +280,9 @@ namespace UcenjeCS
             Console.WriteLine("U nizu ima {0} elemenata.", PodaciFloat.Niz.Length);
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko je brojeva unutar niza PodaciFloat manje od 10.
+        /// </summary>
         private static void Zadatak11()
         {
             // Koliko je brojeva manje od 10
@@ -286,6 +301,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje najveći broj u nizu PodaciFloat.
+        /// </summary>
         private static void Zadatak12()
         {
             // Ispišite najveći broj
@@ -296,6 +314,9 @@ namespace UcenjeCS
             Console.WriteLine("Najveći broj u nizu je {0}", niz[niz.Length - 1]);
         }
 
+        /// <summary>
+        /// Metoda ispisuje namanji broj u nizu PodaciFloat.
+        /// </summary>
         private static void Zadatak13()
         {
             // Ispišite najmanji broj
@@ -306,6 +327,9 @@ namespace UcenjeCS
             Console.WriteLine("Najmanji broj u nizu je {0}", niz[0]);
         }
 
+        /// <summary>
+        /// Metoda ispisuje prosjek svih brojeva unutar niza PodaciFloat.
+        /// </summary>
         private static void Zadatak14()
         {
             // Ispišite prosjek svih brojeva
@@ -320,6 +344,9 @@ namespace UcenjeCS
             Console.WriteLine("Prosjek svih brojeva iznosi {0}", suma / niz.Length);
         }
 
+        /// <summary>
+        /// Metoda ispisuje sve brojeve unutar niza PodaciFloat koji nemaju decimalni dio.
+        /// </summary>
         private static void Zadatak15()
         {
             // Ispišite sve brojeve koji nemaju decimalni dio.
@@ -338,6 +365,9 @@ namespace UcenjeCS
             }
         }
 
+        /// <summary>
+        /// Metoda ispisuje sve brojeve koji počinju sa znamenkom 7.
+        /// </summary>
         private static void Zadatak16()
         {
             // Ispišite sve brojeve koji počinju s znamenkom 7
@@ -354,6 +384,9 @@ namespace UcenjeCS
             }
         }
 
+        /// <summary>
+        /// Metoda ispisuje sve brojeve u nizu PodaciFloat koji se ponavljaju više od 10 puta.
+        /// </summary>
         private static void Zadatak17()
         {
             // Ispišite sve brojeve koji se ponavljaju više od 10 puta
@@ -392,6 +425,9 @@ namespace UcenjeCS
         #region Metode za PodaciString
 
 
+        /// <summary>
+        /// Metoda ispisuje koliko se imena nalazi u nizu PodaciString.
+        /// </summary>
         private static void Zadatak18()
         {
             // koliko je imena u nizu?
@@ -400,6 +436,9 @@ namespace UcenjeCS
             Console.WriteLine("U nizu se nalazi {0} imena.", niz.Length);
         }
 
+        /// <summary>
+        /// Metoda ispisuje koje se ime najčešće pojavljuje u nizu PodaciString.
+        /// </summary>
         private static void Zadatak19()
         {
             // Kojeg imena ima najviše?
@@ -434,6 +473,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko se imena u nizu PodaciString pojavljuju samo jednom.
+        /// </summary>
         private static void Zadatak20()
         {
             // Koliko se imena pojavljuje samo jednom?
@@ -493,6 +535,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko imena u nizu PodaciString imaju 7 znakova.
+        /// </summary>
         private static void Zadatak21()
         {
             // Koliko ima imena koji imaju 7 znakova?
@@ -511,6 +556,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje procjenu količine muških imena unutar niza PodaciString.
+        /// </summary>
         private static void Zadatak22()
         {
             // Ako uzmemo pravilo da sva ženska imena završavaju s slovom a, koliko ima muškaraca?
@@ -529,6 +577,9 @@ namespace UcenjeCS
             Console.WriteLine("U nizu se nalazi {0} muških imena.", count);
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko se imena unutar niza PodaciString sastoje od dva imena.
+        /// </summary>
         private static void Zadatak23()
         {
             // Koliko imena se sastoje od dva imena (npr. MARIJAN-ZLATKO, LUCIJA-ALBINA, itd.)
@@ -552,7 +603,9 @@ namespace UcenjeCS
 
         #region Metode za PodaciDateTime
 
-
+        /// <summary>
+        /// Metoda ispisuje koliko se ukupno datuma nalazi u nizu PodaciDateTime.
+        /// </summary>
         private static void Zadatak24()
         {
             // Koliko je ukupno elemenata u nizu?
@@ -562,9 +615,12 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko se datuma niza PodaciDateTime nalazi u mjesecu Srpnju
+        /// </summary>
         private static void Zadatak25()
         {
-            // Koliko je elemenata niza u mjesecu srpnju?
+            // Koliko je elemenata niza u mjesecu Srpnju?
             var niz = PodaciDateTime.Niz();
             int count = 0;
 
@@ -580,6 +636,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko datuma niza PodaciDateTime ima zapis sa 7 sekundi.
+        /// </summary>
         private static void Zadatak26()
         {
             // Koliko elemenata niza ima zapis s 7 sekundi?
@@ -598,6 +657,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje prosječnu vrijednost svih minutnih vrijednosti zapisa datuma u nizu PodaciDateTime.
+        /// </summary>
         private static void Zadatak27()
         {
             // Koja je prosječna vrijednost svih zapisa za minute?
@@ -613,6 +675,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje sve godine u kojima su nastali zapisi datuma niza PodaciDateTime.
+        /// </summary>
         private static void Zadatak28()
         {
             // U kojim sve godinama postoje zapisi?
@@ -637,6 +702,9 @@ namespace UcenjeCS
 
         }
 
+        /// <summary>
+        /// Metoda ispisuje koliko se zapisa datuma niza PodaciDateTime pojavljuje u prijestupnim godinama.
+        /// </summary>
         private static void Zadatak29()
         {
             // Koliko je zapisa koji se mogu pojaviti samo u prijestupnim godinama?
@@ -655,6 +723,9 @@ namespace UcenjeCS
             Console.WriteLine("U nizu se nalazi {0} zapisa u prijestupnim godinama.", count);
         }
 
+        /// <summary>
+        /// Metoda ispisuje sve zapise datuma niza PodaciDateTime čije je vrijeme između 4 i 5 u noći.
+        /// </summary>
         private static void Zadatak30()
         {
             // Koliko je zapisa čije je vrijeme između 4 i 5 sati u noći?
