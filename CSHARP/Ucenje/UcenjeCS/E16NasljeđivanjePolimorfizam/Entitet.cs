@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace UcenjeCS.E16NasljeđivanjePolimorfizam
 {
-    internal class Entitet
+    //Apstraktna klasa je ona klasa koja se ne može instancirati
+    //Ona se kreira da bi ju druge klase nasljedile i nadopunile
+    internal abstract class Entitet
     {
 
         public int? Sifra { get; set; }
