@@ -8,7 +8,11 @@ Console.WriteLine("zadnja linija čćčđščćč");
 
 using UcenjeCS;
 
-UcenjeCS.E15KlasaObjekt.Program.Izvedi();
+new UcenjeCS.E16NasljeđivanjePolimorfizam.Program();
+
+#region E15
+//UcenjeCS.E15KlasaObjekt.Program.Izvedi();
+#endregion
 
 #region E13
 //E13Vjezbanje.Izvedi();
