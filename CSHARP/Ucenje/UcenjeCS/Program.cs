@@ -8,8 +8,10 @@ Console.WriteLine("zadnja linija čćčđščćč");
 
 using UcenjeCS;
 
+UcenjeCS.E15KlasaObjekt.Program.Izvedi();
+
 #region E13
-E13Vjezbanje.Izvedi();
+//E13Vjezbanje.Izvedi();
 #endregion
 
 #region E12
