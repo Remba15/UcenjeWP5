@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace UcenjeCS.E17GenericiLambdaEkstenzije
@@ -126,6 +128,15 @@ namespace UcenjeCS.E17GenericiLambdaEkstenzije
             {
                 Console.WriteLine("I bez poziva metode " + s.Naziv);
             });
+
+            //DZ NA REPOZITORIJU OD PROFE
+            Func<int, int, int> Zbrajanje = (x, y) => x + y;
+            Console.WriteLine(Zbrajanje(5, 2));
+
+            Func<bool, int> Parni = (x) =>
+            {
+                return (x % 2) == 0;
+            };
         }
 
         public void TuMeObradi(Smjer s)
@@ -133,7 +144,8 @@ namespace UcenjeCS.E17GenericiLambdaEkstenzije
             Console.WriteLine("Obrađujem u Programu smjer s pozivom metode " + s.Naziv);
         }
 
-        //DZ NA REPOZITORIJU OD PROFE
+        
+            
 
 
         public int KlasicnaMetoda(int x, int y)
