@@ -117,7 +117,7 @@ namespace UcenjeCS.E17GenericiLambdaEkstenzije
             Console.WriteLine(smjerovi.FirstOrDefault()?.Sifra);
 
             //Custom sort bez korištenja implementacije sučelja IComparable
-            smjerovi.Sort((s1,s2) => s1.Naziv.CompareTo(s2.Naziv));
+            smjerovi.Sort((s1, s2) => s1.Naziv.CompareTo(s2.Naziv));
 
             Console.WriteLine(smjerovi.FirstOrDefault()?.Naziv);
 
@@ -133,7 +133,7 @@ namespace UcenjeCS.E17GenericiLambdaEkstenzije
             Func<int, int, int> Zbrajanje = (x, y) => x + y;
             Console.WriteLine(Zbrajanje(5, 2));
 
-            Func<bool, int> Parni = (x) =>
+            Func<int, bool> Parni = (x) =>
             {
                 return (x % 2) == 0;
             };
@@ -144,14 +144,10 @@ namespace UcenjeCS.E17GenericiLambdaEkstenzije
             Console.WriteLine("Obrađujem u Programu smjer s pozivom metode " + s.Naziv);
         }
 
-        
-            
-
-
         public int KlasicnaMetoda(int x, int y)
         {
             return x + y;
         }
 
-        }
     }
+}
