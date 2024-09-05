@@ -8,8 +8,12 @@ Console.WriteLine("zadnja linija čćčđščćč");
 
 using UcenjeCS;
 
+#region E18
+new UcenjeCS.E18KonzolnaAplikacija.Izbornik();
+#endregion
+
 #region E17
-new UcenjeCS.E17GenericiLambdaEkstenzije.Program();
+//new UcenjeCS.E17GenericiLambdaEkstenzije.Program();
 #endregion
 
 #region E16

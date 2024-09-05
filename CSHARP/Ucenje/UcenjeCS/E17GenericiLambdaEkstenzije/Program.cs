@@ -126,6 +126,13 @@ namespace UcenjeCS.E17GenericiLambdaEkstenzije
             {
                 Console.WriteLine("I bez poziva metode " + s.Naziv);
             });
+
+            //DZ NA REPOZITORIJU OD PROFE - Pozabaviti se sa func
+            Func<int, bool> Parni = (x) => x % 2 == 0;
+            Console.WriteLine(Parni(2));
+            Console.WriteLine(Parni(3));
+
+
         }
 
         public void TuMeObradi(Smjer s)
@@ -133,7 +140,7 @@ namespace UcenjeCS.E17GenericiLambdaEkstenzije
             Console.WriteLine("Obrađujem u Programu smjer s pozivom metode " + s.Naziv);
         }
 
-        //DZ NA REPOZITORIJU OD PROFE
+        
 
 
         public int KlasicnaMetoda(int x, int y)
