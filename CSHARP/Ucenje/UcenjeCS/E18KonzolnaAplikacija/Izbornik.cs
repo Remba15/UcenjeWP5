@@ -1,56 +1,101 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using UcenjeCS.E18KonzolnaAplikacija.Model;
 
 namespace UcenjeCS.E18KonzolnaAplikacija
 {
-    public class Izbornik
+    internal class Izbornik
     {
-        public ObradaSmjer ObradaSmjer { get; set; }
-        public ObradaGrupa ObradaGrupa { get; set; }
 
-        public Izbornik()
+        public ObradaSmjer ObradaSmjer { get; set; }  
+        public ObradaPolaznik ObradaPolaznik { get; set; } 
+        public ObradaGrupa ObradaGrupa { get; set; } 
+
+        public Izbornik() 
         {
             Pomocno.DEV = true;
             ObradaSmjer = new ObradaSmjer();
+            ObradaPolaznik = new ObradaPolaznik();
             ObradaGrupa = new ObradaGrupa(this);
+            UcitajPodatke();
+            PozdravnaPoruka();
             PrikaziIzbornik();
+        }
+
+        private void UcitajPodatke()
+        {
+            string docPath =
+         Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            if(File.Exists(Path.Combine(docPath, "smjerovi.json")))
+            {
+                StreamReader file = File.OpenText(Path.Combine(docPath, "smjerovi.json"));
+                ObradaSmjer.Smjerovi = JsonConvert.DeserializeObject<List<Smjer>>(file.ReadToEnd());
+                file.Close();
+
+            }
+
         }
 
         private void PrikaziIzbornik()
         {
-
-            Console.WriteLine("Glavni izbornik:");
-            Console.WriteLine("\t1. Smjerovi");
-            Console.WriteLine("\t2. Grupe");
-            Console.WriteLine("\t3. Polaznici");
-            Console.WriteLine("\t4. Izlaz iz programa");
+            Console.WriteLine("Glavni izbornik");
+            Console.WriteLine("1. Smjerovi");
+            Console.WriteLine("2. Polaznici");
+            Console.WriteLine("3. Grupe");
+            Console.WriteLine("4. Izlaz iz programa");
             OdabirOpcijeIzbornika();
-
         }
 
         private void OdabirOpcijeIzbornika()
         {
-            switch(E11Metode.UcitajCijeliBroj("Odaberi stavku izbornika", 1, 4))
+            
+            switch(Pomocno.UcitajRasponBroja("Odaberite stavku izbornika", 1, 4))
             {
                 case 1:
-                    ObradaSmjer.PrikaziIzbornik();
                     Console.Clear();
+                    ObradaSmjer.PrikaziIzbornik();
                     PrikaziIzbornik();
                     break;
                 case 2:
-                    ObradaGrupa.PrikaziIzbornik();
                     Console.Clear();
+                    ObradaPolaznik.PrikaziIzbornik();
                     PrikaziIzbornik();
                     break;
-                //NADOPUNIT ZA DZ
+                case 3:
+                    Console.Clear();
+                    ObradaGrupa.PrikaziIzbornik();
+                    PrikaziIzbornik();
+                    break;
                 case 4:
-                    Console.WriteLine("Doviđenja.");
+                    Console.WriteLine("Hvala na korištenju aplikacije, doviđenja!");
+                    SpremiPodatke();
                     break;
             }
+        }
 
+        private void SpremiPodatke()
+        {
+            if (Pomocno.DEV)
+            {
+                return;
+            }
+
+            //Console.WriteLine(JsonConvert.SerializeObject(ObradaSmjer.Smjerovi));
+
+            string docPath =
+          Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            StreamWriter outputFile = new StreamWriter(Path.Combine(docPath, "smjerovi.json"));
+            outputFile.WriteLine(JsonConvert.SerializeObject(ObradaSmjer.Smjerovi));
+            outputFile.Close();
+        }
+
+        private void PozdravnaPoruka()
+        {
+            Console.WriteLine("*********************************");
+            Console.WriteLine("*** Edunova Console App v 1.0 ***");
+            Console.WriteLine("*********************************");
         }
     }
 }

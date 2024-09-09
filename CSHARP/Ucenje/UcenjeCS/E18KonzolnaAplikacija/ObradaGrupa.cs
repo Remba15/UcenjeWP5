@@ -1,105 +1,158 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UcenjeCS.E18KonzolnaAplikacija.model;
+﻿using UcenjeCS.E18KonzolnaAplikacija.Model;
 
 namespace UcenjeCS.E18KonzolnaAplikacija
 {
-    public class ObradaGrupa
+    internal class ObradaGrupa
     {
 
-        public List<Grupa> Grupe { get; set; }
-        public Izbornik Izbornik { get; set; }
+        public List<Grupa>  Grupe { get; set; }
+        private Izbornik Izbornik;
 
-        public ObradaGrupa(Izbornik Izbornik)
+        public ObradaGrupa() 
         {
-            this.Izbornik = Izbornik;
             Grupe = new List<Grupa>();
-            if (Pomocno.DEV)
-            {
-                UcitajTestnePodatke();
-            }
+
+        }
+        public ObradaGrupa(Izbornik izbornik):this()
+        {
+            this.Izbornik = izbornik;
         }
 
         public void PrikaziIzbornik()
         {
-            Console.WriteLine("Rad s grupama");
-            Console.WriteLine("\t1. Prikaži sve grupe.");
-            Console.WriteLine("\t2. Dodaj novu grupu");
-            Console.WriteLine("\t3. Promjeni grupu");
-            Console.WriteLine("\t4. Brisanje grupu");
-            //NADOPUNIT ZA DZ
-            Console.WriteLine("\t5. Povratak na glavni izbornik.");
+            Console.WriteLine("Izbornik za rad s grupama");
+            Console.WriteLine("1. Pregled svih grupa");
+            Console.WriteLine("2. Unos nove grupe");
+            Console.WriteLine("3. Promjena podataka postojeće grupe");
+            Console.WriteLine("4. Brisanje grupe");
+            Console.WriteLine("5. Povratak na glavni izbornik");
             OdabirOpcijeIzbornika();
         }
 
         private void OdabirOpcijeIzbornika()
         {
-
-            switch(E11Metode.UcitajCijeliBroj("Odaberi stavku izbornika", 1, 5))
+           switch(Pomocno.UcitajRasponBroja("Odaberite stavku izbornika", 1, 5))
             {
                 case 1:
-                    PrikaziSveGrupe();
+                    PrikaziGrupe();
                     PrikaziIzbornik();
                     break;
                 case 2:
-                    DodajNovuGrupu();
+                    UnosNoveGrupe();
                     PrikaziIzbornik();
                     break;
-                case 5:
+                case 3:
+                    PromjeniPodatkeGrupe();
+                    PrikaziIzbornik();
                     break;
-
+                case 4:
+                    ObrisiGrupu();
+                    PrikaziIzbornik();
+                    break;
+                case 5:                    
+                    Console.Clear();
+                    break;
             }
+        }
+
+        private void ObrisiGrupu()
+        {
+            PrikaziGrupe();
+            var g = Grupe[
+                Pomocno.UcitajRasponBroja("Odaberi redni broj grupe za brisanje", 1, Grupe.Count) - 1
+                ];
+            if (Pomocno.UcitajBool("Sigurno obrisati " + g.Naziv + "? (DA/NE)", "da"))
+            {
+                Grupe.Remove(g);
+            }
+        }
+
+        private void PromjeniPodatkeGrupe()
+        {
+            PrikaziGrupe();
+            var g = Grupe[
+                Pomocno.UcitajRasponBroja("Odaberi redni broj grupe za promjenu",1,Grupe.Count)-1
+                ];
+            // copy paste s linije 102 - izvući u metodu
+            g.Sifra = Pomocno.UcitajRasponBroja("Unesi šifru grupe", 1, int.MaxValue);
+            g.Naziv = Pomocno.UcitajString("Unesi naziv grupe", 50, true);
+            //smjer
+            Izbornik.ObradaSmjer.PrikaziSmjerove();
+
+            g.Smjer = Izbornik.ObradaSmjer.Smjerovi[
+                Pomocno.UcitajRasponBroja("Odaberi redni broj smjera", 1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
+
+            g.Predavac = Pomocno.UcitajString("Unesi ime i prezime predavača", 50, true);
+            g.MaksimalnoPolaznika = Pomocno.UcitajRasponBroja("Unesi maksimalno polaznika", 1, 30);
+
+            // polaznici
+            g.Polaznici = UcitajPolaznike((int)g.MaksimalnoPolaznika);
+
 
         }
 
-        private void DodajNovuGrupu()
+        private void PrikaziGrupe()
         {
+            Console.WriteLine("*****************************");
+            Console.WriteLine("Grupe u aplikaciji");
+            int rb = 0, rbp;
+            foreach(var g in Grupe)
+            {
+                Console.WriteLine(++rb + ". "+ g.Naziv + " (" + g.Smjer?.Naziv + "), " + g.Polaznici?.Count + " polaznika"); // prepisati metodu toString
+                rbp = 0;
+                g.Polaznici.Sort();
+                foreach (var p in g.Polaznici) 
+                {
+                    Console.WriteLine("\t" + ++rbp + ". " + p.Ime + " " + p.Prezime);
+                }
+            }
+            Console.WriteLine("****************************");
+        }
 
-            var g = new Grupa();
-            g.Sifra = E11Metode.UcitajCijeliBroj("Unesi šifru grupe", 1, int.MaxValue);
-            g.Naziv = Pomocno.UcitajString("Unesi naziv grupe");
-            var ios = Izbornik.ObradaSmjer;
-            ios.PrikaziSveSmjerove();
-            g.Smjer = ios.Smjerovi[
-                    E11Metode.UcitajCijeliBroj("Odaberite smjer za ovu grupu", 1, ios.Smjerovi.Count) - 1
-                ];
+        private void UnosNoveGrupe()
+        {
+            Console.WriteLine("***************************");
+            Console.WriteLine("Unesite tražene podatke o grupi");
+
+            Grupa g = new Grupa();
+            g.Sifra = Pomocno.UcitajRasponBroja("Unesi šifru grupe", 1, int.MaxValue);
+            g.Naziv = Pomocno.UcitajString("Unesi naziv grupe", 50, true);
+            //smjer
+            Izbornik.ObradaSmjer.PrikaziSmjerove();
+
+            g.Smjer = Izbornik.ObradaSmjer.Smjerovi[
+                Pomocno.UcitajRasponBroja("Odaberi redni broj smjera",1, Izbornik.ObradaSmjer.Smjerovi.Count) - 1];
+            
+            g.Predavac = Pomocno.UcitajString("Unesi ime i prezime predavača", 50, true);
+            g.MaksimalnoPolaznika = Pomocno.UcitajRasponBroja("Unesi maksimalno polaznika", 1, 30);
+
+            // polaznici
+            g.Polaznici = UcitajPolaznike((int)g.MaksimalnoPolaznika);
 
             Grupe.Add(g);
-
         }
 
-        private void PrikaziSveGrupe()
+        private List<Polaznik> UcitajPolaznike(int maksimalnoPolaznika)
         {
-            if (Grupe.Count == 0)
+            List<Polaznik> lista = new List<Polaznik>();
+            while(lista.Count < maksimalnoPolaznika && Pomocno.UcitajBool("Za unos polaznika unesi DA", "da") )
             {
-                var staraB = Console.BackgroundColor;
-                var staraF = Console.ForegroundColor;
-
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("Nema grupa u bazi.");
-                Console.BackgroundColor = staraB;
-                Console.ForegroundColor = staraF;
-                return;
+                Izbornik.ObradaPolaznik.PrikaziPolaznike();
+                Console.WriteLine((Izbornik.ObradaPolaznik.Polaznici.Count + 1) + ". Dodaj novog polaznika");
+                var odabranaOpcija = Pomocno.UcitajRasponBroja("Odaberi redni broj polaznika ili zadnji broj za dodavanje novog", 1,
+                        Izbornik.ObradaPolaznik.Polaznici.Count + 1);
+                if(odabranaOpcija == Izbornik.ObradaPolaznik.Polaznici.Count + 1)
+                {
+                    //ide novi
+                }
+                else
+                {
+                    lista.Add(Izbornik.ObradaPolaznik.Polaznici[odabranaOpcija]);
+                }
+                
             }
 
-            var rb = 0;
-
-            foreach (var e in Grupe)
-            {
-                Console.WriteLine("\t" + ++rb + ". " + e.Naziv);
-            }
-        }
-
-        private void UcitajTestnePodatke()
-        {
-
-            Grupe.Add(new() { Sifra = 1, Naziv = "WP5", Smjer = Izbornik.ObradaSmjer.Smjerovi[0] });
-            Grupe.Add(new() { Sifra = 1, Naziv = "WP4", Smjer = Izbornik.ObradaSmjer.Smjerovi[0] });
-
+            return lista;
         }
     }
 }
