@@ -70,12 +70,19 @@ namespace UcenjeCS.E18KonzolnaAplikacija
         private void PromjeniPodatkeGrupe()
         {
             PrikaziGrupe();
-            var g = Grupe[
-                Pomocno.UcitajRasponBroja("Odaberi redni broj grupe za promjenu",1,Grupe.Count)-1
-                ];
-            // copy paste s linije 102 - izvući u metodu
-            g.Sifra = Pomocno.UcitajRasponBroja("Unesi šifru grupe", 1, int.MaxValue);
-            g.Naziv = Pomocno.UcitajString("Unesi naziv grupe", 50, true);
+            int index = Pomocno.UcitajRasponBroja("Odaberi redni broj grupe za promjenu (odaberi 0 za odustajanje od promjene)", 0, Grupe.Count);
+            Grupa g;
+            if(index == 0)
+            {
+                return;
+            }
+            else
+            {
+                g = Grupe[index-1];
+            }
+
+            // copy paste s linije 102 - izvući u metodu - DONE
+            g.UnosSifreNaziva();
             //smjer
             Izbornik.ObradaSmjer.PrikaziSmjerove();
 
@@ -98,7 +105,7 @@ namespace UcenjeCS.E18KonzolnaAplikacija
             int rb = 0, rbp;
             foreach(var g in Grupe)
             {
-                Console.WriteLine(++rb + ". "+ g.Naziv + " (" + g.Smjer?.Naziv + "), " + g.Polaznici?.Count + " polaznika"); // prepisati metodu toString
+                Console.WriteLine(++rb + ". " + g.ToString());
                 rbp = 0;
                 g.Polaznici.Sort();
                 foreach (var p in g.Polaznici) 
@@ -115,8 +122,7 @@ namespace UcenjeCS.E18KonzolnaAplikacija
             Console.WriteLine("Unesite tražene podatke o grupi");
 
             Grupa g = new Grupa();
-            g.Sifra = Pomocno.UcitajRasponBroja("Unesi šifru grupe", 1, int.MaxValue);
-            g.Naziv = Pomocno.UcitajString("Unesi naziv grupe", 50, true);
+            g.UnosSifreNaziva();
             //smjer
             Izbornik.ObradaSmjer.PrikaziSmjerove();
 
