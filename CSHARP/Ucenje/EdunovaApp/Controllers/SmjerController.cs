@@ -26,6 +26,13 @@ namespace EdunovaApp.Controllers
             return Ok(_context.Smjerovi);
         }
 
+        [HttpGet]
+        [Route("{sifra:int}")]
+        public IActionResult GetBySifra(int sifra)
+        {
+            return Ok(_context.Smjerovi.Find(sifra));
+        }
+
         [HttpPost]
         public IActionResult Post(Smjer smjer)
         {
