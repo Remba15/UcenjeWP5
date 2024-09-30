@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import NavBarEdunova from './components/NavBarEdunova';
 import { Route, Routes } from 'react-router-dom';
 import { RouteNames } from './constants';
-import pocetna from './pages/pocetna';
+import Pocetna from './pages/pocetna';
 import PlayersView from './pages/Players/PlayersView';
 
 
@@ -15,7 +15,7 @@ function App() {
     <Container>
         <NavBarEdunova/>
         <Routes>
-          <Route path={RouteNames.HOME} element={<pocetna/>}/>
+          <Route path={RouteNames.HOME} element={<Pocetna/>}/>
           <Route path={RouteNames.PLAYERS_VIEW} element={<PlayersView/>}/>
         </Routes>
     </Container>
