@@ -1,14 +1,26 @@
-
+import {HttpService} from "./HttpService"
 
 async function get(){
     return await HttpService.get('/Player')
     .then((odgovor)=>{
-        console.log(odgovor.data)
-        console.table(odgovor.data)
+        return {greska: false, poruka: odgovor.data}
     })
-    .catch((e)=>console.log(e))
+    .catch(()=>{
+        return {greska: true, poruka: 'Problem kod dohvaćanja igrača'}
+    })
+}
+
+async function brisanje(sifra){
+    return await HttpService.delete('/Player/' + sifra)
+    .then(()=>{
+        return {greska: false, poruka: 'Obrisano'}
+    })
+    .catch(()=>{
+        return {greska: true, poruka: 'Problem kod brisanja igrača'}
+    })
 }
 
 export default{
-    get
+    get,
+    brisanje
 }

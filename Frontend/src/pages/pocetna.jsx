@@ -3,7 +3,7 @@
 export default function pocetna(){
     return(
         <>
-        Ovdje ce doći nešto pametnije kasnije
+        Ovdje će doći nešto pametnije kasnije
         </>
     )
 }

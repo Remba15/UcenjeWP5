@@ -2,7 +2,8 @@
 export const RouteNames = {
     HOME: '/',
 
-    PLAYERS_VIEW: '/Players'
+    PLAYERS_VIEW: '/Players',
+    PLAYERS_ADD: '/Players/Add'
 
 
 }
