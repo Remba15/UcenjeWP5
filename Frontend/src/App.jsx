@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import { RouteNames } from './constants';
 import Pocetna from './pages/pocetna';
 import PlayersView from './pages/Players/PlayersView';
+import PlayersAdd from './pages/Players/PlayersAdd';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path={RouteNames.HOME} element={<Pocetna/>}/>
           <Route path={RouteNames.PLAYERS_VIEW} element={<PlayersView/>}/>
+          <Route path={RouteNames.PLAYERS_ADD} element={<PlayersAdd/>}/>
         </Routes>
     </Container>
 

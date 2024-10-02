@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import PlayerService from "../../services/PlayerService"
 import { Button, Table } from "react-bootstrap";
 import moment from "moment";
+import { RouteNames } from "../../constants"
+import { Link } from "react-router-dom";
 
 
 export default function PlayersView(){
@@ -55,39 +57,41 @@ export default function PlayersView(){
 
     return(
         <>
-            <Table striped bordered hover responsive>
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Registration Date</th>
-                        <th>Region</th>
-                        <th>Action</th>
+        <Link to={RouteNames.PLAYERS_ADD}
+        className="btn btn-success siroko">Add new player</Link>
+        <Table striped bordered hover responsive>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Registration Date</th>
+                    <th>Region</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {players && players.map((player, index)=>(
+                    <tr key={index}>
+                        <td className={player.username==null ? 'sredina' : 'desno'}>
+                            {player.username==null ? 'Nije definirano' : player.username}
+                        </td>
+                        <td className={player.registrationDate==null ? 'sredina' : 'desno'}>
+                            {formatirajDatum(player.registrationDate)}
+                        </td>
+                        <td className={player.region==null ? 'sredina' : 'desno'}>
+                        {player.region==null ? 'Nije definirano' : player.region}
+                        </td>
+                        <td>
+                            <Button
+                            variant="danger"
+                            onClick={()=>obrisi(player.id)}>
+                                
+                                Delete
+                            </Button>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {players && players.map((player, index)=>(
-                        <tr key={index}>
-                            <td className={player.username==null ? 'sredina' : 'desno'}>
-                                {player.username==null ? 'Nije definirano' : player.username}
-                            </td>
-                            <td className={player.registrationDate==null ? 'sredina' : 'desno'}>
-                                {formatirajDatum(player.registrationDate)}
-                            </td>
-                            <td className={player.region==null ? 'sredina' : 'desno'}>
-                            {player.region==null ? 'Nije definirano' : player.region}
-                            </td>
-                            <td>
-                                <Button
-                                variant="danger"
-                                onClick={()=>obrisi(player.id)}>
-                                    
-                                    Delete
-                                </Button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
+                ))}
+            </tbody>
+        </Table>
         </>
     )
 }
