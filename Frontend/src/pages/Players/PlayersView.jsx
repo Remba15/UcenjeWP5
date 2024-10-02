@@ -38,11 +38,19 @@ export default function PlayersView(){
     }
 
     function obrisi(sifra){
-        brisanjePlayera(sifra);
+        if(!confirm('Sigurno obrisati?')){
+            return
+        }
+        deletePlayer(sifra);
     }
 
-    async function brisanjePlayera(sifra){
-        
+    async function deletePlayer(sifra){
+        const odgovor = await PlayerService.brisanje(sifra);
+        if(odgovor.greska){
+            alert(odgovor.poruka)
+            return
+        }
+        getPlayers();
     }
 
     return(
@@ -71,7 +79,7 @@ export default function PlayersView(){
                             <td>
                                 <Button
                                 variant="danger"
-                                onClick={()=>obrisi(smjer.sifra)}>
+                                onClick={()=>obrisi(player.id)}>
                                     
                                     Delete
                                 </Button>
